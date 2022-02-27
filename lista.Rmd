@@ -1,0 +1,24 @@
+---
+title: "Untitled"
+author: "Filip Djurich"
+date: "2/27/2022"
+output: html_document
+---
+```{r}
+install.packages('rvest')
+library('rvest')
+library('xml2')
+library('tidyverse')
+```
+```{r}
+url <- 'http://www.imdb.com/search/title?count=100&release_date=2019,2019&title_type=feature'
+webpage <- read_html(url)
+```
+```{r}
+rank_data_html <- html_nodes(webpage,'.text-primary')
+rank_data <- html_text(rank_data_html)
+head(rank_data)
+
+```
+
+
